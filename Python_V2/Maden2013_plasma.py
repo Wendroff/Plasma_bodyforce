@@ -25,7 +25,8 @@ def Plasma_model(x,y,x0=0.0,y0=0.0,a0 = 23.0,a1 = 0.8,a2 = 1.0,b0 = 23.5,b1 = 0.
     FX[flag_compute] = (a1*xx[flag_compute] + a2*np.power(xx[flag_compute],2)) * np.exp(-a0*xx[flag_compute])
     FY[flag_compute] = (b1*yy[flag_compute] + b2*np.power(yy[flag_compute],2)) * np.exp(-b0*np.power(yy[flag_compute],0.4))
     Fz = c*FX*FY
-    return Fz
+    F_total = c
+    return Fz,F_total
 
 if __name__ == '__main__':
     Ny=500;Nx=1000

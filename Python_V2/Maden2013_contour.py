@@ -44,7 +44,7 @@ font_ticks = {
              'size'    : 12
             }
 
-(fig_mpl,ax) = plt.subplots(1, facecolor='white')
+(fig_mpl,ax) = plt.subplots(1, facecolor='white',figsize=(20,6))
 
 xx, yy = np.meshgrid(x,y)
 Fz = np.zeros(xx.shape)
@@ -63,9 +63,9 @@ def make_frame(t):
 
     c_t = c*np.sin(2*np.pi*t/T)
     if (c_t>0):
-        Fz = M13.Plasma_model(xx, yy,x0,y0,a0,a1,a2,b0,b1,b2,c_t)
+        Fz,test = M13.Plasma_model(xx, yy,x0,y0,a0,a1,a2,b0,b1,b2,c_t)
     else:
-        Fz = M13.Plasma_model(xx, yy,x0,y0,a0,a1,a2,b0,b1,b2,c_t,False)
+        Fz,test = M13.Plasma_model(xx, yy,x0,y0,a0,a1,a2,b0,b1,b2,c_t,False)
     
     ax.contourf(xx, yy, Fz,levels)
     #ax.pcolor(xx,yy,Fz,vmin=-2., vmax=2.)
